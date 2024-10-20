@@ -11,7 +11,7 @@ function ViewAllGyms() {
 
   const Navigate = useNavigate();
   useEffect(() => {
-    if (localStorage.getItem(`CustomerLogId`) == null) {
+    if (localStorage.getItem(`CustomerLogId`) === null) {
       Navigate(`/home`);
     }
   },[]);
@@ -21,7 +21,7 @@ function ViewAllGyms() {
       .post(`/viewGyms`)
       .then((res) => {
         console.log(res, "Gym");
-        if (res.data.msg == "No Data obtained ") {
+        if (res.data.msg === "No Data obtained ") {
           setdata([]);
         } else {
           setdata(res.data.data);
